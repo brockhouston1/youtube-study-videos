@@ -1,20 +1,12 @@
 # Project Plan for Automated Study Video Creation and Upload
 
 ## Accomplishments
-
-1. **Image and Video Generation**:
-   - Successfully generated images using DALL-E.
-   - Created a 10-second video loop and extended it to a 1-hour video.
-
-2. **Audio Integration**:
-   - Downloaded music tracks and integrated them with the video.
-   - Ensured the final video is 1 hour long with properly looped audio.
-
-3. **YouTube Upload**:
-   - Automated the upload of videos to YouTube with dynamic titles and descriptions.
-
-4. **Command-Line Interface (CLI)**:
-   - Developed a CLI tool to handle video generation and uploading processes.
+- [Date] - Successfully generated images using DALL-E.
+- [Date] - Created a 10-second video loop and extended it to a 1-hour video.
+- [Date] - Downloaded music tracks and integrated them with the video.
+- [Date] - Ensured the final video is 1 hour long with properly looped audio.
+- [Date] - Automated the upload of videos to YouTube with dynamic titles and descriptions.
+- [Date] - Developed a CLI tool to handle video generation and uploading processes.
 
 ## Remaining Steps
 

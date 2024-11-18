@@ -7,6 +7,8 @@
 - [Date] - Ensured the final video is 1 hour long with properly looped audio.
 - [Date] - Automated the upload of videos to YouTube with dynamic titles and descriptions.
 - [Date] - Developed a CLI tool to handle video generation and uploading processes.
+- [Date] - Implemented audio mixing functionality, successfully combining video and audio tracks.
+- [Date] - Successfully tested the entire pipeline, including video generation, audio mixing, and uploading to YouTube.
 
 ## Remaining Steps
 

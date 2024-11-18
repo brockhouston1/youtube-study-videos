@@ -20,9 +20,11 @@ class StudyVideoCreator:
             else:
                 image_path = self.image_generator.generate_scene()
             
-            if not image_path:
-                raise ValueError("Failed to generate image")
+            if not image_path or not image_path.exists():
+                raise ValueError("Failed to generate image or image does not exist")
             
+            logger.info(f"Generated image at: {image_path}")
+
             # Create a short 10-second video from the image
             short_video_path = self.output_dir / "short_study_video.mp4"
             cmd_short = [
@@ -46,6 +48,8 @@ class StudyVideoCreator:
                 logger.error(f"FFmpeg Error (short video): {result_short.stderr}")
                 return None
             
+            logger.info(f"✓ Short video created: {short_video_path}")
+
             # Loop the 10-second video to create a 1-hour video
             final_video_path = self.output_dir / "study_video.mp4"
             cmd_final = [

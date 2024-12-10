@@ -9,6 +9,8 @@
 - [Date] - Developed a CLI tool to handle video generation and uploading processes.
 - [Date] - Implemented audio mixing functionality, successfully combining video and audio tracks.
 - [Date] - Successfully tested the entire pipeline, including video generation, audio mixing, and uploading to YouTube.
+- [Date] - Created copyright-free music for the videos.
+- [Date] - Added a command in `cli_tool.py` to generate and upload videos.
 
 ## Remaining Steps
 

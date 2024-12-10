@@ -17,13 +17,13 @@ def select_random_audio_file(music_directory: str) -> Path:
     selected_file = random.choice(audio_files)
     return Path(music_directory) / selected_file
 
-def generate_video():
-    """Generate a study video."""
+def generate_and_upload_video():
+    """Generate a study video and upload it to YouTube."""
     print("Generating video...")
 
     # Initialize components
     video_creator = StudyVideoCreator()
-    music_directory = 'assets/music'  # Path to your music directory
+    music_directory = 'assets/permuted_tracks_hour'  # Path to your music directory
     audio_mixer = AudioMixer()
 
     # Select a random audio file
@@ -40,33 +40,36 @@ def generate_video():
         final_video_path = audio_mixer.combine_video_and_audio(
             video_path=video_path,
             audio_path=selected_audio_path,
-            output_filename="final_study_video.mp4",
+            output_filename="lofi_study_focus_video.mp4",
             volume=0.85
         )
         if final_video_path:
             print(f"Video created at: {final_video_path}")
+            # Upload to YouTube
+            print("Uploading video to YouTube...")
+            youtube_service = authenticate_youtube()
+            upload_video(youtube_service, video_file=str(final_video_path))
+            print("Upload completed successfully.")
         else:
             print("Failed to mix audio with video.")
     else:
         print("Failed to create video or select audio.")
 
-def upload_to_youtube():
-    """Upload the video to YouTube."""
-    print("Uploading video...")
-    youtube_service = authenticate_youtube()
-    upload_video(youtube_service, video_file='output/final_videos/final_study_video.mp4')
-
 def main():
     parser = argparse.ArgumentParser(description="Automate study video creation and upload.")
     parser.add_argument('--generate', action='store_true', help="Generate a new study video")
     parser.add_argument('--upload', action='store_true', help="Upload the video to YouTube")
+    parser.add_argument('--generate-upload', action='store_true', help="Generate and upload a new study video")
     args = parser.parse_args()
 
-    if args.generate:
-        generate_video()
+    # if args.generate:
+    #     generate_video()
 
-    if args.upload:
-        upload_to_youtube()
+    # if args.upload:
+    #     upload_to_youtube()
+
+    if args.generate_upload:
+        generate_and_upload_video()
 
 if __name__ == "__main__":
     main() 
